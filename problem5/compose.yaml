@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  jupyterlab:
+    image: wloving77/problem5:v2
+    container_name: jupyterlab_container
+    env_file:
+      - .env
+    volumes:
+      - ./problem5:/problem5 
+    ports:
+      - "8888:8888" 
+    networks:
+      - dbnetwork
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres_container
+    env_file:
+      - .env
+    volumes:
+      - postgresdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432" 
+    networks:
+      - dbnetwork
+
+volumes:
+  postgresdata:
+
+networks:
+  dbnetwork:
