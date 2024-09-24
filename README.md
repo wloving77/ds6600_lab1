@@ -11,13 +11,17 @@ I chose the GNU General Public License because it allows others to use and modif
 
 # Question 3 Answers:
 
-**Meals on Wheels**: I recommend a Virtual Machine for this use case. I recommend this because they have potentially changing requirements (Database Type and Storage Amount) but also want to have isolation by chapter of Meals on Wheels. These virtual machines will act as their own independent systems and can all be connected to the internet. I also think Docker Containers would be a decent use case here as the frontend, backend, and databases can each be their own containers and they can be connected via a docker network. The only problem with docker is the potential requirement for changing databases between chapters. Virtual environments and the global environment are too simple and leave a ton of potential for issues and environment setting up between chapters. 
+**Meals on Wheels**
+I recommend using a Virtual Machine for this use case. This is because the organization may have changing requirements, such as database type and storage capacity, and they also need to maintain isolation between different Meals on Wheels chapters. Each virtual machine can function as an independent system while being connected to the internet. Docker containers could also be a viable solution, as the frontend, backend, and databases can each run in separate containers, connected via a Docker network. However, Docker might not be ideal if there is a need to change databases between chapters. Virtual environments and the global environment are too simplistic and could lead to significant issues in setting up and managing environments across chapters.
 
-**Legal Aid Justice Center**: I recommend simply using your global environment for this use case. Because they don't want your code and just care for the final product using your machines global environment is perfectly fine. There is nothing wrong with using a virtual environment simply for encapsulation and cleanliness of code but anything past virtual environment is pure overkill in this scenario. Virtual machines and Docker containers don't really provide any convenience here and are thus unnecessary.
+**Legal Aid Justice Center**
+I recommend using your global environment for this use case. Since they are only interested in the final product and not your code, using the global environment on your machine is perfectly acceptable. Although using a virtual environment could help with encapsulation and maintaining a clean workspace, anything beyond that, such as Virtual Machines or Docker containers, would be excessive and unnecessary in this scenario.
 
-**Save The Children**: I recommend a Docker Container in this scenario. Docker containers natively support many distributions of Linux including Ubuntu so the python package requirements are solved there. This ML Model also has to be deployed by multiple different people throughout potentially collapsing cities which Docker's standardized build step allows creating the same container and thus the same model every time for all deployments. Virtual Machines might work but because this model needs to be cloned and deployed repeatedly by different people it is likely a virtual machine software would be too cumbersome and difficult to use. Virtual environments and the global environment would be far too simple and would essentially require every person deploying this model to be comfortable on a command line with arbitrary commands and not just docker based commands.
+**Save The Children**
+I recommend using Docker containers for this scenario. Docker containers natively support many Linux distributions, including Ubuntu, which resolves the issue of Python package compatibility. This machine learning model needs to be deployed by multiple people in potentially unstable environments, and Docker’s standardized build process ensures that the same container, and therefore the same model, is created every time for all deployments. While virtual machines might work, they would be too cumbersome and difficult to use, given the need for repeated deployments by different people. Virtual environments and the global environment would be far too simplistic, requiring each person deploying the model to be proficient with command-line tools and arbitrary commands, rather than just Docker commands.
 
-**Swedish Python**: I would recommend a Virtual Environment with something like Pyenv and Pipenv to choose a python version that is not written in Swedish. The global environment could work but you'd have to have only one version of python which would not allow you to simultaneously hot swap between the two versions. Docker and Virtual machines would likely just be overkill in this scenario. 
+**Swedish Python**
+I recommend using a virtual environment, such as those provided by Pyenv and Pipenv, to select a Python version that is not in Swedish. While the global environment could be used, it would only allow you to have one Python version installed, preventing you from easily switching between the two versions. Docker and virtual machines would likely be overkill for this situation.
 
 # Question 4 Answers: 
 
@@ -52,14 +56,20 @@ CMD ["python3"]
 
  **Output From Docker Run:**
 
-$ docker run -it lab1-image
 Python 3.12.3 (main, Sep 11 2024, 14:17:37) [GCC 13.2.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
-
-
 
 # Question 5: 
 
 Dockerhub link: https://hub.docker.com/u/wloving77 
 
+# Question 6 Special Paste:
+
+After the Creation, the cruel god Moloch rebelled:
+
+    against the authority of Marduk the Creator.
+    Moloch stole from Marduk the most powerful of all
+    the artifacts of the gods, the Amulet of Yendor,
+    and he hid it in the dark cavities of Gehennom, the
+    Under World, where he now lurks, and bides his time.
